@@ -26,7 +26,7 @@ class GameController < ApplicationController
   end
 
   def included?(guess, grid)
-    guess.split("").all? { |letter| grid.include? letter }
+    guess.split('').all? { |letter| grid.include? letter }
   end
 
   def compute_score(attempt, time_taken)
@@ -47,12 +47,12 @@ class GameController < ApplicationController
     if translation
       if included?(attempt.upcase, grid)
         score = compute_score(attempt, time)
-        [score, "well done"]
+        [score, "Wow! You done!"]
       else
-        [0, "not in the grid"]
+        [0, "Hum... Not in the grid"]
       end
     else
-      [0, "not an english word"]
+      [0, "Ops... isn't an english word"]
     end
   end
 
